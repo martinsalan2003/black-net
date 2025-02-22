@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import logo from '../assets/images/BlackNet.png'
+import logo from '../assets/images/icones-black/BlackNet.png'
 import '../styles/styles-components/Header.sass'
 
 export default function Header(){

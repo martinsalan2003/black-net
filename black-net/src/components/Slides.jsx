@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import imagepri from '../assets/images/imagep.png';
-import imageseg from '../assets/images/images.png';
-import imageter from '../assets/images/imaget.png';
+import imagepri from '../assets/images/images-slides/imagep.png';
+import imageseg from '../assets/images/images-slides/images.png';
+import imageter from '../assets/images/images-slides/imaget.png';
+
 import '../styles/styles-components/Slides.sass';
 
 const images = [
@@ -10,7 +11,7 @@ const images = [
   imageter
 ];
 
-const Carousel = () => {
+const Slides = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const startX = useRef(0);
   const endX = useRef(0);
@@ -75,4 +76,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Slides;
