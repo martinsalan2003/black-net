@@ -1,0 +1,148 @@
+@import '../styles-global/variables'
+
+header
+    border: 1px solid red
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 3em 10em
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 80px 
+    transition: background-color 0.3s ease, padding 0.3s ease, height 0.3s ease
+    z-index: 1000
+
+    &.scrolled
+        background-color: $cor-terciaria
+        padding: 2em 8em 
+        height: 60px 
+
+    img
+        height: 80px
+        transition: height 0.3s ease
+
+    &.scrolled img
+        height: 40px
+
+    nav
+        ul
+            display: flex
+            gap: 2em
+            align-items: center
+
+            span   
+                font-family: sans-serif
+            li
+                
+                font-weight: 600
+                cursor: pointer
+                list-style: none
+                transition: 0.3s ease
+            
+            a
+                text-decoration: none
+                color: #FFFFFF
+                cursor: pointer !important
+
+            .cont
+                display: inline-block 
+                background-color:#FFFFFF
+                color: #000000
+                padding: 10px 20px 
+                border-radius: 50px           
+                font-weight: 600
+                transition: 0.3s ease
+            .cont:hover
+                cursor: pointer !important
+
+// menu para mobile
+.hamburger
+    display: none
+    flex-direction: column
+    justify-content: space-between
+    width: 30px
+    height: 25px
+    cursor: pointer
+
+    span
+        display: block
+        width: 100%
+        height: 3px
+        background: white
+        transition: 0.3s ease-in-out
+
+// Transforma o hambúrguer no "X"
+.hamburger.active
+    span:nth-child(1)
+        transform: translateY(13px) rotate(47deg)
+
+    span:nth-child(2)
+        opacity: 0
+
+    span:nth-child(3)
+        transform: translateY(-8px) rotate(-45deg)
+
+// Menu para celular
+@media (max-width: 768px)
+    header
+        background-color: transparent 
+        padding: 0 2em !important
+        align-items: center !important
+        position: fixed
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out
+        z-index: 1000
+
+        &.scrolled
+            background-color: #000000
+        
+        &.hidden
+            transform: translateY(-100%)
+            opacity: 0
+            pointer-events: none 
+        &.visible
+            opacity: 1
+            transform: translateY(0) 
+
+    .hamburger
+        display: flex
+        transform: translateY(0)
+        transition: transform 0.3s ease-in-out
+
+    nav
+        position: absolute
+        top: 59px
+        right: 0 
+        background: #000000b6
+        width: 100%
+        height: 0
+        overflow: hidden
+        transition: height 0.3s ease-in-out
+        
+        ul 
+            flex-direction: column
+            justify-content: space-between
+            width: 100%
+            height: 100%
+            opacity: 0
+            transition: opacity 0.3s ease-in-out
+            li
+                height: 100%           
+                width: 100%
+                text-align: center
+                padding:  2% 0  
+        span  
+            height: 100%
+            width: 100%       
+            border-radius: 0 
+            a
+                text-align: center
+                width: 100%
+                height: 60px
+                border-radius: 0 !important 
+
+    nav.open
+        height: 300px
+        ul
+            opacity: 1
