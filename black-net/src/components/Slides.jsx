@@ -1,78 +1,49 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from 'react';
 import imagepri from '../assets/images/images-slides/imagep.png';
 import imageseg from '../assets/images/images-slides/images.png';
 import imageter from '../assets/images/images-slides/imaget.png';
 
+import Carousel from 'react-bootstrap/Carousel';
 import '../styles/styles-components/Slides.sass';
 
-const images = [
-  imagepri,
-  imageseg,
-  imageter
-];
-
 const Slides = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const startX = useRef(0);
-  const endX = useRef(0);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
-    return () => clearInterval(interval);
+    const images = [imagepri, imageseg, imageter];
+    let loadedCount = 0;
+
+    // aumenta a velocidade de carregametno das imagens
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setLoaded(true);
+        }
+      };
+    });
   }, []);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-  const handleTouchStart = (e) => {
-    startX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    endX.current = e.touches[0].clientX;
-    e.preventDefault(); // Evita o comportamento padrão de rolagem
-  };
-
-  const handleTouchEnd = () => {
-    if (Math.abs(startX.current - endX.current) > 50) {
-      if (startX.current - endX.current > 0) {
-        nextSlide(); // Vai para o próximo slide
-      } else {
-        prevSlide(); // Volta para o slide anterior
-      }
-    }
-  };
-
   return (
-    <div 
-      className="carousel" 
-      onTouchStart={handleTouchStart} 
-      onTouchMove={handleTouchMove} 
-      onTouchEnd={handleTouchEnd}
-    >
-      <button className="prev" onClick={prevSlide}>&lt;</button>
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Slide ${index + 1}`}
-          className={index === currentIndex ? "active" : ""}
-        />
-      ))}
-      <button className="next" onClick={nextSlide}>&gt;</button>
-      <div className="indicators">
-        {images.map((_, index) => (
-          <span key={index} className={index === currentIndex ? "active" : ""}></span>
-        ))}
-      </div>
-    </div>
+    <section>
+      {!loaded ? (
+        <div className="preloader">Carregando...</div>
+      ) : (
+        <Carousel data-bs-theme="dark">
+          <Carousel.Item>
+            <img className="d-block w-100" src={imagepri} alt="First slide" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={imageseg} alt="Second slide" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={imageter} alt="Third slide" />
+          </Carousel.Item>
+        </Carousel>
+      )}
+    </section>
   );
 };
 

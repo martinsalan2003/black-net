@@ -1,67 +1,7 @@
-.carousel
-  width: 100vw
-  height: 100vh
-  position: relative
-  overflow: hidden
-  display: flex
-  align-items: center
-  justify-content: center
+@media (max-width: 1024px) 
+    section
+        position: relative
+        z-index: -1
 
-  img
-    position: absolute
-    width: 100vw
-    height: 100vh
-    object-fit: cover
-    opacity: 0
-    transition: opacity 1s ease-in-out
-
-    &.active
-      opacity: 1
-
-  .prev, .next
-    position: absolute
-    top: 50%
-    transform: translateY(-50%)
-    background: rgba(0, 0, 0, 0.5)
-    color: white
-    border: none
-    padding: 10px 20px
-    cursor: pointer
-    font-size: 24px
-    z-index: 10
-
-    & 
-        background-color: transparent !important
-    
-
-  .prev
-    left: 20px
-
-  .next
-    right: 20px
-
-  .indicators
-    position: absolute
-    bottom: 20px
-    display: flex
-    gap: 10px
-
-    span
-      width: 10px
-      height: 10px
-      background: gray
-      border-radius: 50%
-      transition: background 0.3s
-
-      &.active
-        background: white
-
-@media (max-width: 768px)
-    .carousel
-        img
-            width: 100vw
-            height: 100vh
-            object-fit: cover !important
-
-        .prev, .next
-            display: none 
+        .carousel-control-prev, .carousel-control-next
+            display: none
