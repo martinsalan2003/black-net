@@ -19,7 +19,7 @@ header
     height: 60px
 
   img
-    height: 4.5em
+    height: 50px
     transition: height 0.3s ease
 
   &.scrolled img
@@ -93,10 +93,12 @@ header
     width: 100%
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out
     z-index: 100 !important
+    height: 60px
 
     &.scrolled
       background-color: $preto-clasico
       position: fixed !important
+      
 
     &.hidden
       transform: translatey(-100%)
@@ -114,7 +116,7 @@ header
 
   nav 
     position: absolute
-    top: 80px
+    top: 60px
     right: 0
     background: $preto-clasico
     width: 100%

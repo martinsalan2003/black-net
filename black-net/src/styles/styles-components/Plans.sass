@@ -1,0 +1,134 @@
+@import '../styles-global/variables';
+    
+.pricing-section  
+    text-align: center  
+    padding: 5rem 0  
+
+    h2  
+        font-size: 2.5rem  
+        font-weight: bold  
+        margin-bottom: 1rem  
+        color: $branco-clasico
+
+    p  
+        color: $branco-clasico !important
+        margin-bottom: 2rem  
+
+    .card-container 
+        display: flex  
+        justify-content: center  
+        align-items: center
+        flex-wrap: wrap 
+        margin-top: 3em 
+        gap: 2rem  
+
+    .card  
+        background: $fundo-cards !important
+        border: none  
+        border-radius: 12px   
+        transition: transform 0.3s ease, box-shadow 0.3s ease  
+        cursor: pointer  
+        width: 250px
+        height: 60vh
+
+        &.hovered  
+            transform: scale(1.05)  
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2)  
+
+        &:active  
+            transform: scale(0.98)  
+
+        .card-body  
+            height: 60vh
+            padding: 1.5rem  
+            display: flex
+            flex-direction: column
+            justify-content: space-evenly
+
+
+        .card-speed
+            font-weight: bold
+        
+
+            span
+                font-size: 1.8em
+                color: $branco-clasico
+
+        .card-title  
+            font-size: 1.5rem  
+            font-weight: bold 
+            color: $branco-clasico
+
+        .card-subtitle  
+            font-size: 1.25rem  
+            font-weight: bold  
+            color: $branco-clasico
+
+            span
+                font-size: 1.8em
+                color: $branco-clasico
+
+
+        // eveto de escolher o plano 
+        .card-title2
+            color: $branco-clasico
+
+        .card-text-add
+            border-radius: 12px
+            padding: 5px 10px  
+            background-color: $cor-primaria
+        .card-link
+            font-weight: bold
+            text-decoration: none
+            color: $branco-clasico 
+           
+            
+
+    .card-container .card:nth-child(2)
+        height: 70vh
+        
+
+    @media (max-width: 768px)
+        .card-container .card:nth-child(2)
+            height: 60vh
+
+
+    // Estilização da Tabela
+    .table-container
+        margin-top: 5rem
+        overflow-x: auto
+        
+        h3
+            font-size: 2rem
+            margin-bottom: 1rem
+            color: $branco-clasico
+
+    .plans-table
+        width: 100%
+        border-collapse: collapse
+        background: transparent, 
+        color: $branco-clasico
+        border-radius: 10px
+        overflow: hidden
+
+        th, td
+
+            padding: 15px
+            border-bottom: 1px solid $branco-clasico
+
+        th
+        
+            font-weight: bold
+
+        tr:hover
+            background: $cor-secundaria
+
+        td
+            font-size: 1rem
+
+        // Responsividade
+        @media (max-width: 768px)
+            
+            font-size: 0.9rem
+            td, th
+                padding: 10px
