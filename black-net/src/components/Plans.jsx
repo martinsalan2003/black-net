@@ -28,11 +28,7 @@ export default function Plans() {
     }, []);
 
     const handleInteraction = (index) => {
-        if (isMobile) {
-            setActiveCard(activeCard === index ? null : index);
-        } else {
-            setActiveCard(index);
-        }
+        setActiveCard(activeCard === index ? null : index);
     };
 
     return (
@@ -47,7 +43,8 @@ export default function Plans() {
                         className={`card ${activeCard === index ? "hovered" : ""}`} 
                         onMouseEnter={() => !isMobile && setActiveCard(index)}
                         onMouseLeave={() => !isMobile && setActiveCard(null)}
-                        onClick={() => isMobile && handleInteraction(index)}
+                        onClick={() => handleInteraction(index)}
+                        onTouchStart={() => handleInteraction(index)}
                         style={{ transition: "all 0.3s ease-in-out", transform: activeCard === index ? "scale(1.05)" : "scale(1)", boxShadow: activeCard === index ? "0px 4px 20px rgba(0, 0, 0, 0.2)" : "none" }}
                     >
                         <div className="card-body">
