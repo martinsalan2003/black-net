@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import '../styles/styles-components/Plans.sass';
 
 const plans = [
@@ -18,19 +18,6 @@ const features = [
 
 export default function Plans() {
     const [activeCard, setActiveCard] = useState(null);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-
-    const handleInteraction = (index, event) => {
-        if (event) event.preventDefault();
-        setActiveCard(activeCard === index ? null : index);
-    };
 
     return (
         <section className="pricing-section">
@@ -42,10 +29,8 @@ export default function Plans() {
                     <div
                         key={index}
                         className={`card ${activeCard === index ? "hovered" : ""}`} 
-                        onMouseEnter={(e) => !isMobile && handleInteraction(index, e)}
-                        onMouseLeave={(e) => !isMobile && handleInteraction(null, e)}
-                        onClick={(e) => handleInteraction(index, e)}
-                        onTouchStart={(e) => handleInteraction(index, e)}
+                        onMouseEnter={() => setActiveCard(index)}
+                        onMouseLeave={() => setActiveCard(null)}
                         style={{ transition: "all 0.3s ease-in-out", transform: activeCard === index ? "scale(1.05)" : "scale(1)", boxShadow: activeCard === index ? "0px 4px 20px rgba(0, 0, 0, 0.2)" : "none" }}
                     >
                         <div className="card-body">
