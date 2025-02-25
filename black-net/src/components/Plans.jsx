@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import '../styles/styles-components/Plans.sass';
 
 const plans = [
@@ -17,11 +17,22 @@ const features = [
 ];
 
 export default function Plans() {
-    const [hoveredCard, setHoveredCard] = useState(null);
-    const [clickedCard, setClickedCard] = useState(null); 
+    const [activeCard, setActiveCard] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
 
-    const handleCardClick = (index) => {
-        setClickedCard(index); 
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    const handleInteraction = (index) => {
+        if (isMobile) {
+            setActiveCard(activeCard === index ? null : index);
+        } else {
+            setActiveCard(index);
+        }
     };
 
     return (
@@ -33,15 +44,15 @@ export default function Plans() {
                 {plans.map((plan, index) => (
                     <div
                         key={index}
-                        className={`card ${hoveredCard === index ? "hovered" : ""} ${clickedCard === index ? "clicked" : ""}`} // A
-                        onMouseEnter={() => setHoveredCard(index)}
-                        onMouseLeave={() => setHoveredCard(null)}
-                        onClick={() => handleCardClick(index)} 
+                        className={`card ${activeCard === index ? "hovered" : ""}`} 
+                        onMouseEnter={() => !isMobile && setActiveCard(index)}
+                        onMouseLeave={() => !isMobile && setActiveCard(null)}
+                        onClick={() => isMobile && handleInteraction(index)}
+                        style={{ transition: "all 0.3s ease-in-out", transform: activeCard === index ? "scale(1.05)" : "scale(1)", boxShadow: activeCard === index ? "0px 4px 20px rgba(0, 0, 0, 0.2)" : "none" }}
                     >
                         <div className="card-body">
-                            {clickedCard === index ? (
+                            {activeCard === index ? (
                                 <>
-                                    
                                     <h3 className="card-title2">Bela escolha!</h3>
                                     <p className="card-text-add">
                                         <a href="/agendar" className="card-link">Clique aqui e agende sua instalação!</a>

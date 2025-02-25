@@ -1,6 +1,6 @@
-import imagepri from '../assets/images/images-slides/imagep.png';
-import imageseg from '../assets/images/images-slides/images.png';
-import imageter from '../assets/images/images-slides/imaget.png';
+import imagepri from '../assets/images/images-slides/imagep.webp';
+import imageseg from '../assets/images/images-slides/images.webp';
+import imageter from '../assets/images/images-slides/imaget.webp';
 
 import Carousel from 'react-bootstrap/Carousel';
 import '../styles/styles-components/Slides.sass';
