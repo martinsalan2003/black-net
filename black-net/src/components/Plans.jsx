@@ -27,7 +27,8 @@ export default function Plans() {
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    const handleInteraction = (index) => {
+    const handleInteraction = (index, event) => {
+        if (event) event.preventDefault();
         setActiveCard(activeCard === index ? null : index);
     };
 
@@ -41,10 +42,10 @@ export default function Plans() {
                     <div
                         key={index}
                         className={`card ${activeCard === index ? "hovered" : ""}`} 
-                        onMouseEnter={() => !isMobile && setActiveCard(index)}
-                        onMouseLeave={() => !isMobile && setActiveCard(null)}
-                        onClick={() => handleInteraction(index)}
-                        onTouchStart={() => handleInteraction(index)}
+                        onMouseEnter={(e) => !isMobile && handleInteraction(index, e)}
+                        onMouseLeave={(e) => !isMobile && handleInteraction(null, e)}
+                        onClick={(e) => handleInteraction(index, e)}
+                        onTouchStart={(e) => handleInteraction(index, e)}
                         style={{ transition: "all 0.3s ease-in-out", transform: activeCard === index ? "scale(1.05)" : "scale(1)", boxShadow: activeCard === index ? "0px 4px 20px rgba(0, 0, 0, 0.2)" : "none" }}
                     >
                         <div className="card-body">
