@@ -1,0 +1,31 @@
+@import '../styles-global/variables'
+
+
+.container-parceiros
+ 
+  background-color: $cor-primaria
+  h1
+    text-align: center
+    color: $branco-clasico
+  .image-slider
+    
+    width: 100%
+    overflow: hidden
+    position: relative
+
+    .slider-content
+      display: flex
+      width: max-content
+      animation: slide 10s linear infinite
+      will-change: transform
+
+      img
+        width: 150px
+        height: auto
+        margin-right: 20px
+
+    @keyframes slide
+      0%
+        transform: translateX(0)
+      100%
+        transform: translateX(-50%) 

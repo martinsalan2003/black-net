@@ -58,31 +58,6 @@ export default function Plans() {
                 ))}
             </div>
 
-            {/* Tabela de Comparação */}
-            <div className="table-container">
-                <h3>Compare os Planos</h3>
-                <p>Aqui você descobre um pouco dos benefícios de cada plano</p>
-                <table className="plans-table">
-                    <thead>
-                        <tr>
-                            <th>Recursos</th>
-                            <th>Essencial</th>
-                            <th>Avançado</th>
-                            <th>Ultra</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {features.map((feature, index) => (
-                            <tr key={index}>
-                                <td>{feature.name}</td>
-                                <td>{feature.essential ? "✓" : ""}</td>
-                                <td>{feature.advanced ? "✓" : ""}</td>
-                                <td>{feature.ultra ? "✓" : ""}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
         </section>
     );
 }
