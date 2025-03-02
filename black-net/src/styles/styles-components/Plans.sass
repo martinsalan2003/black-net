@@ -24,106 +24,90 @@
         margin-top: 3em 
         gap: 2rem  
 
-    .card  
-        background: $fundo-cards !important
-        border: none  
-        border-radius: 12px   
-        transition: transform 0.3s ease, box-shadow 0.3s ease  
+    .card 
+        cursor: default !important
+        border: 1px solid $branco-clasico
+        background: transparent
+        border-radius: 12px    
         cursor: pointer  
-        width: 250px
-        height: 60vh
+        width: 300px
+        height: 90vh 
 
-        &.hovered  
-            transform: scale(1.05)  
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2)  
+        .divisor
+            color: $branco-clasico
 
-        &:active  
-            transform: scale(0.98)  
 
         .card-body  
             height: 60vh
-            padding: 1.5rem  
+            padding: 2em  
             display: flex
             flex-direction: column
-            justify-content: space-evenly
+            justify-content: space-between
+            
+            
+            .card-features
+    
+                text-align: center !important
+                display: flex
+                flex-direction: column
+                gap: 15px
+                margin: 0
+                padding: 0
 
+                s
+                    color: #464545
+
+                ul,li
+                    font-family: $font-paragrafos
+                    color: $branco-clasico !important
+                    list-style: none
+                
+                
+
+        .container-btn
+                    
+                    button
+                        cursor: pointer !important
+                        border: none
+                        color: $branco-clasico
+                        font-family: $font-Montserrat
+                        background-color: $cor-primaria
+                        border-radius: 12px 
+                        padding: .5em 2em
+
+                    button:hover
+                        
+                        background-color: #7c2dca
+                    
 
         .card-speed
             font-weight: bold
-        
-
+            font-size: .8em !important
+            color: $branco-clasico
+            color: $cor-secundaria !important
             span
-                font-size: 1.8em
                 color: $branco-clasico
+                font-size: 1.5em
 
         .card-title  
             font-size: 1.5rem  
             font-weight: bold 
             color: $branco-clasico
 
-        .card-subtitle  
+        .card-subtitle 
+           
             font-size: 1.25rem  
             font-weight: bold  
-            color: $branco-clasico
+            color: $cor-secundaria !important
 
             span
                 font-size: 1.8em
                 color: $branco-clasico
-
-
-        // eveto de escolher o plano 
-        .card-title2
-            color: $branco-clasico
-
-        .card-text-add
-            border-radius: 12px
-            padding: 5px 10px  
-            background-color: $cor-primaria
-        .card-link
-            font-weight: bold
-            text-decoration: none
-            color: $branco-clasico 
            
             
-
     .card-container .card:nth-child(2)
-        height: 70vh
+        height: 100vh
         
-
-
-
-
-// Estilização da Tabela
-.table-container
-    cursor: default
-    margin-top: 5rem
-    overflow-x: auto
-        
-    h3
-        font-size: 2rem
-        margin-bottom: 1rem
-        color: $branco-clasico
-
-    .plans-table
-        width: 100%
-        border-collapse: collapse
-        background: transparent, 
-        color: $branco-clasico
-        border-radius: 10px
-        overflow: hidden
-
-        th, td
-            padding: 15px
-            border-bottom: 1px solid $branco-clasico
-
-        th
-            font-weight: bold
-
-        tr:hover
-            background: $cor-secundaria
-
-        td
-            font-size: 1rem
 
 
 
@@ -133,9 +117,3 @@
     .card-container .card:nth-child(2)
         height: 60vh
         
-    .table-container      
-        font-size: 0.7rem
-        td, th
-            padding: 10px
-        td
-            font-size: 1.2em !important
