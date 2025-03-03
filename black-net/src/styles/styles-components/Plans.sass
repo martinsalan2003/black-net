@@ -1,5 +1,5 @@
 @import '../styles-global/variables';
-
+    
 .pricing-section  
     text-align: center  
     padding: 5rem 0  
@@ -43,7 +43,6 @@
             flex-direction: column
             justify-content: space-between
             
-
         .card-features
             text-align: center !important
             display: flex
@@ -97,6 +96,8 @@
                 font-size: 1.8em
                 color: $branco-clasico
 
+    .card-container .card:nth-child(2)
+        height: 100vh
 
 // Estilos específicos para o carrossel no mobile e tablet
 @media (max-width: 1024px)
@@ -107,5 +108,39 @@
         display: block 
 
     .slick-slider
-        width: 100%  
-        margin: 0 
+        width: 100%
+        max-width: 50vw
+       
+        margin: 0 auto
+
+    .slick-list
+        overflow: hidden !important
+
+    .slick-slide
+        display: flex
+        justify-content: center
+
+    .slick-dots
+        bottom: -30px
+
+    .slick-prev, .slick-next
+        display: none !important 
+
+    .card
+        height: 60vh !important
+        min-height: 500px
+
+    .card-container .card:nth-child(2)
+        height: 60vh !important
+
+
+@media (max-width: 768px)
+
+    .pricing-section  
+        padding: 1em  0
+
+        .slick-slider
+             max-width: 80vw
+            
+        .card
+            height: 80vh !important
