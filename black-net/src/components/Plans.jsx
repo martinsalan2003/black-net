@@ -79,7 +79,9 @@ export default function Plans() {
         arrows: true,
         autoplay: true,
         autoplaySpeed: 4000,
-        pauseOnHover: true
+        pauseOnHover: true,
+        swipe: true,
+        touchMove: true,
     };
 
     return (
