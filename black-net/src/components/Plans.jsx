@@ -80,20 +80,20 @@ export default function Plans() {
         autoplay: true,
         autoplaySpeed: 4000,
         pauseOnHover: true,
-        swipe: true,
-        touchMove: true,
+        swipe: true, // Habilita o swipe
+        touchMove: true, // Habilita o touchmove
         responsive: [
             {
                 breakpoint: 768, 
                 settings: {
                     slidesToShow: 1,
-                    arrows: false,
+                    arrows: false, // Desabilita as setas em telas pequenas
                 }
             },
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 1, // Garantir que apenas 1 slide é mostrado
                 }
             }
         ]
@@ -120,7 +120,7 @@ export default function Plans() {
                                         <hr className="featurette-divider divisor" />
                                     </p>
                                 </div>
-                                
+                                 
                                 <div className="container-features">
                                     <ul className="card-features">
                                         {plan.features.map((feature, idx) => (
@@ -154,7 +154,7 @@ export default function Plans() {
                                         <hr className="featurette-divider divisor" />
                                     </p>
                                 </div>
-                                
+                                 
                                 <div className="container-features">
                                     <ul className="card-features">
                                         {plan.features.map((feature, idx) => (
