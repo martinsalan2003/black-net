@@ -59,14 +59,13 @@ const plans = [
 ];
 
 export default function Plans() {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 1024);
         };
         
-        handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -77,7 +76,10 @@ export default function Plans() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        pauseOnHover: true
     };
 
     return (
@@ -86,7 +88,7 @@ export default function Plans() {
             <p>Aqui estão alguns dos diversos planos que oferecemos, escolha o plano de internet ideal para você e aproveite ao máximo!</p>
             
             {isMobile ? (
-                <Slider {...settings} className="card-container">
+                <Slider {...settings} className="card-container slider-container">
                     {plans.map((plan, index) => (
                         <div key={index} className="card">
                             <div className="card-body">
