@@ -2,7 +2,7 @@ import '../styles/styles-components/Qualities.sass'
 
 const features = [
     {
-      icon: "📶", // Substitua por um ícone apropriado
+      icon: "📶",
       title: "Velocidade de até 1 GIGA",
       description:
         "Velocidades de até 1GIGA para filmes, séries, jogos e chamadas de vídeo. Navegue com a melhor tecnologia e equipamentos de ponta, turbinando sua conexão!",

@@ -1,10 +1,14 @@
+import linhasPri from '../assets/images/efeitos/linhasp.png'
+
+
 import '../styles/styles-components/Slogan.sass'
 
 export default function Slogan(){
     return(
 
         <section className=" slogan">
-            <h1>Black<span>Net.</span></h1>
+            <img src={linhasPri} alt="" />
+            <h1>Internet <span >100<span className='porcentagem'>%</span></span> Fibra Òptica!</h1>
             <p>Exclusividade e potência na sua conexão, navegue sem limites!</p>
 
         </section>
