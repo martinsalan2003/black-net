@@ -9,6 +9,7 @@ const Slides = () => {
   return (
     <section className="hero">
     <img
+      fetchpriority='high'
       src={imageter} 
       alt="Imagem de apresentação"
       className="hero-image"
