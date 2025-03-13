@@ -1,8 +1,17 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import { useEffect, useState } from "react";
+
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import { useEffect, useState } from "react"
+
+
+
 import '../styles/styles-components/Plans.sass';
+
+
+
+
+
 
 const plans = [
     { 

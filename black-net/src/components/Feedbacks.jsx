@@ -1,43 +1,51 @@
 import "../styles/styles-components/Feedbacks.sass";
 import { Star } from "lucide-react"
 
+import iconeAspas from '../assets/images/icones-geral/cotacao.png'
+
 const feedbacks = [
   {
 
     name: "Ana Souza",
-    feedback: "Ótimo serviço! Atendimento rápido e eficiente.",
+    feedback: "Serviço impecável! Atendimento rápido, eficiente e sempre pronto para oferecer a melhor experiência. Totalmente recomendado!",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/1.jpg"
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    icone: iconeAspas
   },
   {
     name: "Carlos Oliveira",
     feedback: "Muito satisfeito com o suporte técnico!",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/men/1.jpg"
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
+    icone: iconeAspas
   },
   {
     name: "Fernanda Lima",
     feedback: "Superou minhas expectativas! Recomendo.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/2.jpg"
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
+    icone: iconeAspas
   },
   {
     name: "João Pedro",
     feedback: "Equipe muito atenciosa e prestativa.",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/men/2.jpg"
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    icone: iconeAspas
   },
   {
     name: "Mariana Santos",
     feedback: "O produto é incrível! Vale cada centavo.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/3.jpg"
+    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    icone: iconeAspas
   },
   {
     name: "Rafael Costa",
-    feedback: "Simplesmente sensacional! Adorei.",
+    feedback: "Mano, simplesmente épico! ping estabilizou em 5 Adorei demais!",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/3.jpg"
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+    icone: iconeAspas
   },
 ];
 
@@ -66,7 +74,9 @@ export default function Feedbacks(){
           </div>
           <p>{item.feedback}</p>
           </div>
-          
+          <div className="container-icon">
+            <img src={item.icone} alt="icone" />
+          </div>
          
         </div>
       ))}

@@ -37,7 +37,7 @@
             color: $branco-clasico
 
         .card-body  
-            height: 60vh
+            height: 100%
             padding: 2em  
             display: flex
             flex-direction: column
@@ -102,7 +102,7 @@
 // Estilos específicos para o carrossel no mobile e tablet
 @media (max-width: 1024px)
     .pricing-section  
-        padding: 1em  
+        padding: 5em  
 
     .card-container 
         display: block 
@@ -121,7 +121,15 @@
         justify-content: center
 
     .slick-dots
-        bottom: -30px
+        bottom: -40px
+
+        li
+            button:before
+                color: #464545
+                opacity: 1 !important
+        li.slick-active
+            button:before
+                color: $branco-clasico
 
     .slick-prev, .slick-next
         display: none !important 
@@ -137,10 +145,12 @@
 @media (max-width: 768px)
 
     .pricing-section  
-        padding: 1em  0
+        padding: 4em 0em !important
 
         .slick-slider
-             max-width: 80vw
+            max-width: 80vw
             
         .card
             height: 80vh !important
+
+            

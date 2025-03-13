@@ -1,7 +1,7 @@
 @import '../styles-global/variables'
 
 .featurette-section
-  padding: 3rem 0
+  padding: 3rem 5em
   color: #fff
   span
     color: $cor-secundaria
@@ -27,30 +27,33 @@
 
 
     .container-image
-      width: 100%
-      max-width: 400px
-      height: 250px 
-     
-      display: flex
-      align-items: center
-      justify-content: center
-      color: #fff
-      font-size: 1.5rem
-      overflow: hidden
+        width: 100%
+        max-width: 400px
+        height: 250px 
+        display: flex
+        justify-content: center
+        align-items: center
+        overflow: hidden
 
-      img
-        height: 100%
-        width: auto
-        object-fit: cover 
+        img
+  
+            height: 100%
+            width: auto
+            object-fit: cover 
 
   .featurette-divider
     border-top: 1px solid #666
     margin: 2rem 0
 
-@media (max-width: 768px)
-  .featurette
-    flex-direction: column
-    text-align: center
 
-    .container-image
-      max-width: 100% 
+@media (max-width: 1024px) 
+  .featurette-section
+    padding: 3em 1em 
+
+@media (max-width: 768px)
+    .featurette
+      lex-direction: column
+      text-align: center
+
+      .container-image
+        max-width: 100% 

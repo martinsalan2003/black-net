@@ -12,5 +12,4 @@ export default function Slogan(){
             <p>Exclusividade e potência na sua conexão, navegue sem limites!</p>
 
         </section>
-    )
-}
+        )}

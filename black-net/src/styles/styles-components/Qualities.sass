@@ -1,29 +1,25 @@
 @import '../styles-global/variables'
 
 .features  
-    boreder: 1px solid red
     display: flex  
     justify-content: space-between  
     padding: 20px  
-    background: $fundo-cards
+    background: $cor-primaria
   
     .feature  
         display: flex
         flex: 1  
         padding: 15px  
-        border-radius: 8px  
         margin: 10px  
 
     .description
-    
         display: flex
         flex-direction: column
         justify-content: center
         align-items: center
     
     .icon 
-        font-size: 2rem  
-        margin-bottom: 10px 
+        padding: 1em
         display: flex
         align-items: center
 
@@ -34,7 +30,7 @@
         color: $branco-clasico
 
     p  
-        font-size: 1rem  
+        font-size: .9rem  
         color: $branco-clasico
         font-family: $font-paragrafos
 
@@ -42,3 +38,9 @@
 @media (max-width: 1024px)
     .features  
         flex-direction: column
+        padding: 20px  5px !important
+        .feature  
+            padding: 15px  5px !important
+    
+        
+               
