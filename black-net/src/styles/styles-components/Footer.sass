@@ -1,0 +1,135 @@
+@import '../styles-global/variables'
+
+.footer
+    background-color: $preto-clasico
+    color: #fff
+    padding: 2.5rem 0
+
+    &-container
+        max-width: 1200px
+        margin: 0 auto
+        display: grid
+        grid-template-columns: 2fr 1fr 1fr 1fr
+        padding: 0 1rem
+        align-items: start
+
+        .footer-section:nth-child(1)
+            justify-self: start
+
+        .footer-section:nth-child(2),
+        .footer-section:nth-child(3),
+        .footer-section:nth-child(4)
+            justify-self: end
+
+    &-section
+
+        h3
+            color: $cor-primaria
+
+        .footer-logo
+            color: $cor-primaria
+            font-size: 1.8rem
+            font-weight: bold
+
+        .footer-text
+            font-size: 0.875rem
+            margin-top: 1rem
+            line-height: 1.5
+
+        .footer-social
+            display: flex
+            gap: 1rem
+            margin-top: 1rem
+
+        .icon
+            cursor: pointer !important
+            font-size: 1.2rem
+            transition: color 0.3s ease-in-out
+
+            &:hover
+                color: $cor-primaria
+
+        .footer-title
+            font-size: 1.2rem
+            font-weight: bold
+            margin-bottom: 1rem
+
+        .footer-list
+            list-style: none
+            padding: 0
+
+        li
+            font-size: 0.875rem
+            margin-bottom: 0.5rem
+            cursor: pointer
+            transition: color 0.3s ease-in-out
+
+            &:hover
+                color: $cor-primaria
+
+    &-bottom
+        border-top: 1px solid #333
+        margin-top: 2rem
+        padding-top: 1rem
+        text-align: center
+        font-size: 0.875rem
+
+        .footer-links
+            display: flex
+            justify-content: center
+            gap: 1.5rem
+            margin-top: 0.5rem
+
+        span
+            transition: color 0.3s ease-in-out
+
+            &:hover
+                cursor: pointer !important
+                color: $cor-primaria
+
+
+    @media (max-width: 1024px)
+        &-container
+            display: flex
+            flex-direction: column
+            padding: 0 0.5rem
+
+        &-section
+            text-align: center
+            margin-bottom: 1.5rem
+            width: 100%
+
+        .footer-title
+            font-size: 1rem
+
+        .footer-social
+            justify-content: center
+            margin-top: 2em
+            gap: 2em !important
+
+        .footer-list
+            font-size: 0.8rem
+
+        .footer-bottom
+            font-size: 0.75rem
+        
+    @media (max-width: 480px)
+        &-container
+            grid-template-columns: 1fr  
+            padding: 0 1rem
+
+        .footer-section
+            text-align: center
+
+        .footer-social
+            justify-content: center
+            gap: 0.8rem
+
+        .footer-title
+            font-size: 0.9rem
+
+        .footer-list
+            font-size: 0.75rem
+
+        .footer-bottom
+            font-size: 0.7rem

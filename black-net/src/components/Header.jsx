@@ -56,9 +56,9 @@ export default function Header(){
       
             <nav className={menuOpen ? 'open' : ''}>
               <ul>
-                <li><a href="#sobre" onClick={handleMenuClose}>Planos</a></li>
-                <li><a href="#habilidades" onClick={handleMenuClose}>Sobre</a></li>
-                <li><a href="#portifolio" onClick={handleMenuClose}>Endereço</a></li>
+                <li><a href="#plans" onClick={handleMenuClose}>Planos</a></li>
+                <li><a href="#feedbacks" onClick={handleMenuClose}>Avaliações</a></li>
+                <li><a href="#aboutblacknet" onClick={handleMenuClose}>Sobre</a></li>
                 <span><a className='cont' href="#contato" onClick={handleMenuClose}>Central do assinante</a></span>
               </ul>
             </nav>

@@ -1,10 +1,9 @@
-import '../styles/styles-components/Qualities.sass';
+import { useEffect, useRef, useState } from 'react'
+import '../styles/styles-components/Qualities.sass'
 
-import iconVel from '../assets/images/icones-geral/velocimetro.png';
-import iconSec from '../assets/images/icones-geral/seguranca.png';
-import iconAte from '../assets/images/icones-geral/atendimento.png';
-
-
+import iconVel from '../assets/images/icones-geral/velocimetro.png'
+import iconSec from '../assets/images/icones-geral/seguranca.png'
+import iconAte from '../assets/images/icones-geral/atendimento.png'
 
 const features = [
     {
@@ -25,13 +24,45 @@ const features = [
         description:
             "Suporte 12h por dia pronto para atender e resolver qualquer problema. Conte com nossa equipe especializada sempre que precisar",
     },
-];
+]
 
 export default function Qualities() {
+    const [isVisible, setIsVisible] = useState(false)
+    const featuresRef = useRef(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                    observer.unobserve(featuresRef.current)
+                }
+            },
+            { threshold: 0.5 }
+        )
+
+        if (featuresRef.current) {
+            observer.observe(featuresRef.current)
+        }
+
+        return () => {
+            if (featuresRef.current) {
+                observer.unobserve(featuresRef.current)
+            }
+        }
+    }, [])
+
     return (
-        <div className="features">
+        <div
+            className={`features ${isVisible ? 'visible' : ''}`}
+            ref={featuresRef}
+        >
             {features.map((feature, index) => (
-                <div className="feature" key={index}>
+                <div
+                    className={`feature ${isVisible ? 'visible' : ''}`}
+                    key={index}
+                >
                     <div className="icon">
                         <img src={feature.icon} alt={feature.title} />
                     </div>
@@ -42,5 +73,5 @@ export default function Qualities() {
                 </div>
             ))}
         </div>
-    );
+    )
 }

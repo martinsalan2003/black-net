@@ -1,22 +1,24 @@
 @import '../styles-global/variables'
-
+    
 .slogan
-    boorder: 1px solid red !important
-    position: relative 
+    position: relative
     z-index: -1
-    height: 50vh 
+    height: 50vh
     padding: 5rem 0
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
-    img
-        
-        opacity: 0.5
-        width: 100%
-        
+    transition: filter 0.7s ease 
 
     
+    &.blurred
+        filter: blur(10px) 
+
+    img
+        opacity: 0.5
+        width: 100%
+
     h1
         position: absolute
         z-index: 1
@@ -27,8 +29,9 @@
         span
             color: $cor-secundaria
             font-size: 1.5em
+
             .porcentagem
-               font-size:  0.5em 
+                font-size: 0.5em
 
     p
         top: 70%
@@ -36,10 +39,3 @@
         z-index: 1
         font-family: $font-titulos
         color: $branco-clasico
-
-@media (max-width: 768px)
-    .slogan
-       
-        p
-            top: 70%
-            text-align: center

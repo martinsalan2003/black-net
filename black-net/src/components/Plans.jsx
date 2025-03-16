@@ -1,17 +1,8 @@
-
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import Slider from "react-slick"
-import { useEffect, useState } from "react"
-
-
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { useEffect, useState, useRef } from "react";
 import '../styles/styles-components/Plans.sass';
-
-
-
-
-
 
 const plans = [
     { 
@@ -37,7 +28,7 @@ const plans = [
         stringLeftValue: 'R$', 
         stringRightValue: '/mês',  
         speed: "700", 
-        stringRightMb: 'Mbps', 
+        stringRightMb: 'Mbps',  
         features: [
             "Acesso ilimitado",
             "Suporte Tecnico",
@@ -69,6 +60,8 @@ const plans = [
 
 export default function Plans() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
+    const [isVisible, setIsVisible] = useState(false);
+    const planRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -79,14 +72,37 @@ export default function Plans() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.5 }
+        );
+        
+        if (planRef.current) {
+            observer.observe(planRef.current);
+        }
+
+        return () => {
+            if (planRef.current) {
+                observer.unobserve(planRef.current);
+            }
+        };
+    }, []);
+
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: isMobile ? 0 : 500, // Desabilitar animação em dispositivos móveis
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
-        autoplay: true,
+        autoplay: !isMobile, // Desabilitar autoplay em dispositivos móveis
         autoplaySpeed: 4000,
         pauseOnHover: true,
         swipe: true,
@@ -94,14 +110,14 @@ export default function Plans() {
     };
 
     return (
-        <section className="pricing-section">
+        <section id="plans" className="pricing-section">
             <h2>Escolha seu Plano</h2>
             <p>Aqui estão alguns dos diversos planos que oferecemos, escolha o plano de internet ideal para você e aproveite ao máximo!</p>
             
             {isMobile ? (
                 <Slider {...settings} className="card-container slider-container">
                     {plans.map((plan, index) => (
-                        <div key={index} className="card">
+                        <div key={index} ref={planRef} className={`card ${isVisible ? 'visible' : ''}`}>
                             <div className="card-body">
                                 <div className="cardheader">
                                     <h3 className="card-title">{plan.title}</h3>
@@ -135,7 +151,7 @@ export default function Plans() {
             ) : (
                 <div className="card-container">
                     {plans.map((plan, index) => (
-                        <div key={index} className="card">
+                        <div key={index} ref={planRef} className={`card ${isVisible ? 'visible' : ''}`}>
                             <div className="card-body">
                                 <div className="cardheader">
                                     <h3 className="card-title">{plan.title}</h3>

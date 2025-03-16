@@ -1,46 +1,62 @@
 @import '../styles-global/variables'
 
-.features  
-    display: flex  
-    justify-content: space-between  
-    padding: 20px  
+.features
+    display: flex
+    justify-content: space-between
+    padding: 20px
     background: $cor-primaria
+    opacity: 0
+    transition: opacity 0.6s ease
   
-    .feature  
+    &.visible
+        opacity: 1
+
+    .feature
         display: flex
-        flex: 1  
-        padding: 15px  
-        margin: 10px  
+        flex: 1
+        padding: 15px
+        margin: 10px
+        transform: translateX(-100%)
+        opacity: 0
+        transition: transform 1s ease, opacity 1s ease
+  
+        &.visible
+            transform: translateX(0)
+            opacity: 1
+      
+        &:nth-child(1)
+            transition-delay: 0.2s
+        &:nth-child(2)
+            transition-delay: 0.4s
+        &:nth-child(3)
+            transition-delay: 0.6s
 
     .description
         display: flex
         flex-direction: column
         justify-content: center
         align-items: center
-    
-    .icon 
+
+    .icon
         padding: 1em
         display: flex
         align-items: center
 
-    h3  
+    h3
         font-family: $font-Montserrat
-        font-size: 1.2rem  
-        margin-bottom: 10px  
+        font-size: 1.2rem
+        margin-bottom: 10px
         color: $branco-clasico
 
-    p  
-        font-size: .9rem  
+    p
+        font-size: .9rem
         color: $branco-clasico
         font-family: $font-paragrafos
 
-
 @media (max-width: 1024px)
-    .features  
+    .features
         flex-direction: column
-        padding: 20px  5px !important
-        .feature  
-            padding: 15px  5px !important
-    
-        
-               
+        padding: 20px 5px !important
+
+        .feature
+            padding: 15px 5px !important

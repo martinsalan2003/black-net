@@ -1,156 +1,165 @@
-@import '../styles-global/variables';
-    
-.pricing-section  
-    text-align: center  
-    padding: 5rem 0  
+@import '../styles-global/variables'
 
-    h2  
-        font-size: 2.5rem  
-        font-weight: bold  
-        margin-bottom: 1rem  
+.pricing-section
+    text-align: center
+    padding: 5rem 0
+
+    h2
+        font-size: 2.5rem
+        font-weight: bold
+        margin-bottom: 1rem
         color: $branco-clasico
         font-family: $font-Montserrat
 
-    p  
+    p
         color: $branco-clasico !important
-        margin-bottom: 2rem 
-        font-family: $font-paragrafos 
+        margin-bottom: 2rem
+        font-family: $font-paragrafos
 
-    .card-container 
-        display: flex  
-        justify-content: center  
+    .card-container
+        display: flex
+        justify-content: center
         align-items: center
-        flex-wrap: wrap 
-        margin-top: 3em 
-        gap: 2rem  
+        flex-wrap: wrap
+        margin-top: 3em
+        gap: 2rem
 
-    .card 
-        cursor: default !important
-        border: 1px solid $branco-clasico
-        background: transparent
-        border-radius: 12px    
-        cursor: pointer  
-        width: 300px
-        height: 90vh 
+        .card
+            cursor: default !important
+            border: 1px solid $branco-clasico
+            background: transparent
+            border-radius: 12px
+            cursor: pointer
+            width: 300px
+            height: 90vh
+            opacity: 0
+            transform: translateX(-100%)
+            transition: opacity 1s ease, transform 1s ease
 
-        .divisor
-            color: $branco-clasico
+            &.visible
+                opacity: 1
+                transform: translateX(0)
 
-        .card-body  
-            height: 100%
-            padding: 2em  
-            display: flex
-            flex-direction: column
-            justify-content: space-between
-            
-        .card-features
-            text-align: center !important
-            display: flex
-            flex-direction: column
-            gap: 15px
-            margin: 0
-            padding: 0
-
-            s
-                color: #464545
-
-            ul, li
-                font-family: $font-paragrafos
-                color: $branco-clasico !important
-                list-style: none
-                
-        .container-btn
-            button
-                cursor: pointer !important
-                border: none
+            .divisor
                 color: $branco-clasico
-                font-family: $font-Montserrat
-                background-color: $cor-primaria
-                border-radius: 12px 
-                padding: .5em 2em
 
-            button:hover
-                background-color: #7c2dca
+            .card-body
+                height: 100%
+                padding: 2em
+                display: flex
+                flex-direction: column
+                justify-content: space-between
 
-        .card-speed
-            font-weight: bold
-            font-size: .8em !important
-            color: $branco-clasico
-            color: $cor-secundaria !important
+            .card-features
+                text-align: center !important
+                display: flex
+                flex-direction: column
+                gap: 15px
+                margin: 0
+                padding: 0
 
-            span
+                s
+                    color: #464545
+
+                ul, li
+                    font-family: $font-paragrafos
+                    color: $branco-clasico !important
+                    list-style: none
+
+            .container-btn
+                button
+                    cursor: pointer !important
+                    border: none
+                    color: $branco-clasico
+                    font-family: $font-Montserrat
+                    background-color: $cor-primaria
+                    border-radius: 12px
+                    padding: .5em 2em
+
+                    &:hover
+                        background-color: #7c2dca
+
+            .card-speed
+                font-weight: bold
+                font-size: .8em !important
                 color: $branco-clasico
-                font-size: 1.5em
+                color: $cor-secundaria !important
 
-        .card-title  
-            font-size: 1.5rem  
-            font-weight: bold 
-            color: $branco-clasico
+                span
+                    color: $branco-clasico
+                    font-size: 1.5em
 
-        .card-subtitle 
-            font-size: 1.25rem  
-            font-weight: bold  
-            color: $cor-secundaria !important
-
-            span
-                font-size: 1.8em
+            .card-title
+                font-size: 1.5rem
+                font-weight: bold
                 color: $branco-clasico
+
+            .card-subtitle
+                font-size: 1.25rem
+                font-weight: bold
+                color: $cor-secundaria !important
+
+                span
+                    font-size: 1.8em
+                    color: $branco-clasico
+
+            &:nth-child(1)
+                transition-delay: 0.2s
+            &:nth-child(2)
+                transition-delay: 0.4s
+            &:nth-child(3)
+                transition-delay: 0.6s
 
     .card-container .card:nth-child(2)
         height: 100vh
 
-// Estilos específicos para o carrossel no mobile e tablet
-@media (max-width: 1024px)
-    .pricing-section  
-        padding: 5em  
+    @media (max-width: 1024px)
+        .pricing-section
+            padding: 5em
 
-    .card-container 
-        display: block 
-
-    .slick-slider
-        width: 100%
-        max-width: 50vw
-       
-        margin: 0 auto
-
-    .slick-list
-        overflow: hidden !important
-
-    .slick-slide
-        display: flex
-        justify-content: center
-
-    .slick-dots
-        bottom: -40px
-
-        li
-            button:before
-                color: #464545
-                opacity: 1 !important
-        li.slick-active
-            button:before
-                color: $branco-clasico
-
-    .slick-prev, .slick-next
-        display: none !important 
-
-    .card
-        height: 60vh !important
-        min-height: 500px
-
-    .card-container .card:nth-child(2)
-        height: 60vh !important
-
-
-@media (max-width: 768px)
-
-    .pricing-section  
-        padding: 4em 0em !important
+        .card-container
+            display: block
 
         .slick-slider
-            max-width: 80vw
-            
-        .card
-            height: 80vh !important
+            width: 100%
+            max-width: 50vw
+            margin: 0 auto
 
-            
+        .slick-list
+            overflow: hidden !important
+
+        .slick-slide
+            display: flex
+            justify-content: center
+
+        .slick-dots
+            bottom: -40px
+
+            li
+                button:before
+                    color: #464545
+                    opacity: 1 !important
+
+            li.slick-active
+                button:before
+                    color: $branco-clasico
+
+        .slick-prev, .slick-next
+            display: none !important
+
+        .card
+            height: 60vh !important
+            min-height: 500px
+
+        .card-container .card:nth-child(2)
+            height: 60vh !important
+
+    @media (max-width: 768px)
+        .pricing-section
+            padding: 4em 0em !important
+
+            .slick-slider
+                max-width: 80vw
+
+            .card
+                height: 80vh !important

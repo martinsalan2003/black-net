@@ -23,6 +23,13 @@ const images = [
   img,
   img,
   img,
+  img,
+  img,
+  img,
+  img,
+  img,
+  img,
+  img,
 
 ];
 

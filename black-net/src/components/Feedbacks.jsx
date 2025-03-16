@@ -1,11 +1,10 @@
+import { useEffect, useRef, useState } from 'react'
 import "../styles/styles-components/Feedbacks.sass";
 import { Star } from "lucide-react"
-
 import iconeAspas from '../assets/images/icones-geral/cotacao.png'
 
 const feedbacks = [
   {
-
     name: "Ana Souza",
     feedback: "Serviço impecável! Atendimento rápido, eficiente e sempre pronto para oferecer a melhor experiência. Totalmente recomendado!",
     rating: 5,
@@ -49,38 +48,61 @@ const feedbacks = [
   },
 ];
 
-export default function Feedbacks(){
-    return(
-      <section className="container-feedbacks">
-        <h1>Algumas declarações</h1>
-      <div className="feedback-container">
-      {feedbacks.map((item, index) => (
-        <div className="feedback-card" key={index}>
-          <div className="container-image">
-            <img src={item.image} alt={item.name} className="profile-pic" />
-          </div>
+export default function Feedbacks() {
+    const [isVisible, setIsVisible] = useState(false);
+    const feedbacksRef = useRef(null);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(feedbacksRef.current);
+                }
+            },
+            { threshold: 0.5 }
+        );
 
-          <div className="feedback">
-          <h3>{item.name}</h3>
-          <div className="stars">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                size={15}
-                className={i < item.rating ? "filled" : "unfilled"}
-              />
-            ))}
-          </div>
-          <p>{item.feedback}</p>
-          </div>
-          <div className="container-icon">
-            <img src={item.icone} alt="icone" />
-          </div>
-         
-        </div>
-      ))}
-    </div>
-    </section>
-    )
+        if (feedbacksRef.current) {
+            observer.observe(feedbacksRef.current);
+        }
+
+        return () => {
+            if (feedbacksRef.current) {
+                observer.unobserve(feedbacksRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <section id="feedbacks" className={`container-feedbacks ${isVisible ? 'visible' : ''}`} ref={feedbacksRef}>
+            <h1>Algumas declarações</h1>
+            <div className="feedback-container">
+                {feedbacks.map((item, index) => (
+                    <div className={`feedback-card ${isVisible ? 'visible' : ''}`} key={index}>
+                        <div className="container-image">
+                            <img src={item.image} alt={item.name} className="profile-pic" />
+                        </div>
+                        <div className="feedback">
+                            <h3>{item.name}</h3>
+                            <div className="stars">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star
+                                        key={i}
+                                        size={15}
+                                        className={i < item.rating ? "filled" : "unfilled"}
+                                    />
+                                ))}
+                            </div>
+                            <p>{item.feedback}</p>
+                        </div>
+                        <div className="container-icon">
+                            <img src={item.icone} alt="icone" />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
 }
