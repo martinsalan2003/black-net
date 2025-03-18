@@ -98,11 +98,11 @@ export default function Plans() {
     const settings = {
         dots: true,
         infinite: true,
-        speed: isMobile ? 0 : 500, // Desabilitar animação em dispositivos móveis
+        speed: isMobile ? 0 : 2000, 
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
-        autoplay: !isMobile, // Desabilitar autoplay em dispositivos móveis
+        autoplay: !isMobile, 
         autoplaySpeed: 4000,
         pauseOnHover: true,
         swipe: true,

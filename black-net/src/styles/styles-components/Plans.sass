@@ -29,9 +29,10 @@
             border: 1px solid $branco-clasico
             background: transparent
             border-radius: 12px
-            cursor: pointer
-            width: 300px
-            height: 90vh
+            width: 100%
+            max-width: 300px
+            height: auto
+            min-height: 500px
             opacity: 0
             transform: translateX(-100%)
             transition: opacity 1s ease, transform 1s ease
@@ -62,11 +63,14 @@
                     color: #464545
 
                 ul, li
+                 
                     font-family: $font-paragrafos
                     color: $branco-clasico !important
                     list-style: none
+                    
 
             .container-btn
+                margin-top: 35px
                 button
                     cursor: pointer !important
                     border: none
@@ -82,7 +86,6 @@
             .card-speed
                 font-weight: bold
                 font-size: .8em !important
-                color: $branco-clasico
                 color: $cor-secundaria !important
 
                 span
@@ -111,11 +114,11 @@
                 transition-delay: 0.6s
 
     .card-container .card:nth-child(2)
-        height: 100vh
+        height: 100%
 
     @media (max-width: 1024px)
         .pricing-section
-            border: 1ox solid red !important
+            padding: 4em 0em !important
 
         .card-container
             display: flex  
@@ -128,7 +131,6 @@
             margin: 0 auto
 
         .slick-list
-
             overflow: hidden !important
 
         .slick-slide
@@ -151,24 +153,26 @@
             display: none !important
 
         .card   
-            width: 60vw !important
-            height: 60vh !important
-            min-height: 500px
+            width: 50vw !important
+            max-width: 350px
+            height: auto
+            min-height: 450px
             opacity: 1 !important  
             transform: translateX(0) !important  
 
         .card-container .card:nth-child(2)
-            height: 60vh !important
+            height: auto !important
 
     @media (max-width: 768px)
         .pricing-section
-            padding: 4em 0em !important
+            padding: 3em 0em !important
 
         .slick-slider
             max-width: 80vw
 
         .card
             width: 75vw !important
-            height: 85vh !important
+            max-width: 320px
+            height: auto
             opacity: 1 !important  
             transform: translateX(0) !important  
